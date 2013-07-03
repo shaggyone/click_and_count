@@ -1,1 +1,1 @@
-rvm use ruby-1.9.3-p327-perf@test_task --create
+rvm use ruby-1.9.3@test_task_20130703 --create --install

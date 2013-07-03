@@ -1,1 +1,4 @@
-see task.pdf for details.
+see task.pdf for details
+
+test a run using
+  rake spec spec:javascripts

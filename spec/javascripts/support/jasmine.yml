@@ -1,7 +1,7 @@
 # path to parent directory of src_files
 # relative path from Rails.root
 # defaults to app/assets/javascripts
-src_dir: "../../../app/assets/javascripts"
+src_dir: "app/assets/javascripts"
 
 # list of file expressions to include as source files
 # relative path from scr_dir

@@ -1,6 +1,4 @@
-@Pluralizer = {}
-
-@Pluralizer.pluralize = (number, one, some, many)->
+window.pluralize = (number, one, some, many)->
   number = (number - 0) + ""
   if /1$/.test(number) && !/1.$/.test(number)
     one

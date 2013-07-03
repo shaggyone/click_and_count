@@ -7,7 +7,30 @@
  *
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
- *
- *= require_self
- *= require_tree .
  */
+.wrapper {
+  min-width: 1024px;
+
+  .left {
+    float: left;
+    width: 50%;
+    text-align: center;
+
+    * {
+      padding: 5px;
+    }
+  }
+
+  .right {
+    float: left;
+    width: 50%;
+    text-align: center;
+
+    #Log {
+      padding: 5px;
+      height: 300px;
+
+      overflow-y: scroll;
+    }
+  }
+}

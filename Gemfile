@@ -24,8 +24,9 @@ end
 gem 'jquery-rails'
 gem 'angularjs-rails'
 
-group :test do
+group :development, :test do
   gem 'rspec-rails'
+  gem 'jasmine-rails'
   gem 'factory_girl_rails'
   gem 'faker'
 
@@ -43,6 +44,10 @@ group :test do
 
   # Gem needed to speedup starting of specs
   # gem 'spork'
+end
+
+group :development, :test do
+  # gem 'guard'
 end
 
 

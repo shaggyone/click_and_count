@@ -35,4 +35,49 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.infer_base_class_for_anonymous_controllers = true
+
+  config.include ActionView::Helpers::TextHelper, type: :feature
+
+  Capybara.register_driver :poltergeist do |app|
+    Capybara::Poltergeist::Driver.new app, js_errors: false,
+                                           window_size: [1280, 720]
+  end
+
+  Capybara.javascript_driver = :poltergeist
+  Capybara.ignore_hidden_elements = false
+
+  config.before :suite do
+    # DatabaseCleaner.strategy = :truncation
+    DatabaseCleaner.clean_with :truncation
+  end
+
+  config.before :all, uses_fixtures: true do
+    @uses_fixtures ||= []
+    @uses_fixtures.push true
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.after :all, uses_fixtures: true do
+    DatabaseCleaner.clean
+  end
+
+  config.before :each, :js => true  do
+    DatabaseCleaner.strategy = :truncation
+  end
+
+  config.before :each  do
+    DatabaseCleaner.start
+  end
+
+  config.after :each  do
+    DatabaseCleaner.clean
+  end
+
+  config.after js: true do
+    if example.metadata[:type] == :feature and example.exception.present?
+      page.save_screenshot Rails.root.join('tmp', Time.now.strftime("%Y%m%d-%H%M%S-%6N-spec-failed.jpg")), full: true
+      page.save_page
+    end
+  end
 end

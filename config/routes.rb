@@ -1,8 +1,10 @@
 TestTask::Application.routes.draw do
 
-  root to: 'main#index'
-  put '/' => 'main#create'
+  root to: 'main#show'
 
+  resources :lines, only: [:create]
+
+  mount JasmineRails::Engine => "/specs" if defined?(JasmineRails)
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

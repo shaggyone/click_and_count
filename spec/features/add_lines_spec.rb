@@ -2,7 +2,6 @@
 require 'spec_helper'
 
 feature "Add line", js: true do
-
   context "zero items at start" do
     background do
       visit '/'

@@ -1,10 +1,10 @@
-class LinesSerializer < ActiveModel::Serializer
+class LineSerializer < ActiveModel::Serializer
   self.root = false
 
   attributes :data, :timestamp, :queries_number, :errors
 
   def timestamp
-    object.created_at.strftime "%d.%m.%Y %H:%M:%S"
+    object.created_at.try :strftime, "%d.%m.%Y %H:%M:%S"
   end
 
   def queries_number

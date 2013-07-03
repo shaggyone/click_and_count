@@ -1,13 +1,13 @@
-.wrapper{ "ng:controller" => 'Lines' }
+.wrapper{ "ng:controller" => 'LinesCtrl', "ng:init" => "queries_number = #{ @lines_count.to_json }" }
   .left-div
-    %input{ placeholder: 'Введите строку', "ng:model" => "line.data" }
+    %input#LineData{ placeholder: 'Введите строку', "ng:model" => "line.data" }
     %button{ "ng:click" => "send_line(line)" }
       Отправить строку
 
   .right-div
     #Counter
-      {{ 0 }} {{ запросов }}
+      {{ queries_number }} {{ pluralize(queries_number, 'запрос', 'запроса', 'запросов') }}
 
-    #LogDiv
+    #Log
       %p{ "ng:repeat" => "item in log_data"}
         {{ item }}

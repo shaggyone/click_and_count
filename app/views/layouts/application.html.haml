@@ -1,8 +1,9 @@
 !!!
 %html{"ng-app" => "TestTask", :lang => "ru", 'xmlns:ng' => "http://angularjs.org"}
   %head
+    = csrf_meta_tags
     %meta{:charset => "utf-8"}/
-    %title TestTasl
+    %title TestTask
     %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
 
     = stylesheet_link_tag "application", :media => "all"

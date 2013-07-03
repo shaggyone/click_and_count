@@ -26,8 +26,23 @@ gem 'angularjs-rails'
 
 group :test do
   gem 'rspec-rails'
+  gem 'factory_girl_rails'
+  gem 'faker'
+
+  # Provides readable matchers for specs.
   gem 'shoulda'
-  gem 'spork'
+
+  # Used to mock time
+  gem 'timecop'
+
+  # Use capybara
+  gem 'capybara',        '~> 2.1.0'
+  gem 'poltergeist'
+  # gem 'launchy' # Used by save_and_open_page (doesnt work in vagrant environment by default)
+  gem 'database_cleaner'
+
+  # Gem needed to speedup starting of specs
+  # gem 'spork'
 end
 
 
